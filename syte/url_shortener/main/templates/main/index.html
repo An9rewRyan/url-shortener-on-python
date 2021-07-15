@@ -2,6 +2,12 @@
 {% load static %}
 {% block content %}
 
-<h1>Hello gay!</h1>
+<h1>Введите вашу ссылку для сокращения:</h1>
+
+<form method="POST", action = 'shorten/'>
+    {% csrf_token %}
+    <p>{{search_form.request}}</p>
+    <input type = "submit" value = "отправить">
+</form>
 
 {% endblock %}
