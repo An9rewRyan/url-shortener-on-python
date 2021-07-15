@@ -43,4 +43,5 @@ def redirect_(request, hash):
 
     link = Link.objects.get(hash = hash)
     link.clicks = link.clicks + 1
+    link.save()
     return redirect(link.longLink)

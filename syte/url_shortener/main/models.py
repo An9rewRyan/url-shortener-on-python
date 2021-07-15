@@ -15,3 +15,6 @@ class Link(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     linkId = models.IntegerField(primary_key=True)
 
+#class Click(models.Model):
+
+    #link = models.ForeignKey(Link, on_delete=models.CASCADE)
