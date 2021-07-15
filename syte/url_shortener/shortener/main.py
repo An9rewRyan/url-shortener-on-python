@@ -1,6 +1,7 @@
 import re
 from hashids import Hashids
 from random import randint
+from main.models import Link
 
 def shorten(longLink):
     data = re.compile(r'https\:\/\/.*\/.*')
@@ -10,7 +11,9 @@ def shorten(longLink):
 
 
         hashids = Hashids(min_length=7)
-        hash = hashids.encode(randint(1,1000))
+        link = Link.objects.latest('linkId')
+
+        hash = hashids.encode(link.linkId)
 
         shortLink = 'http://localhost:8000/main/' + str(hash)
         return hash
